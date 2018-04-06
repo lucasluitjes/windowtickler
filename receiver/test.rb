@@ -1,7 +1,7 @@
 require 'webrick'
 
 RES_X, RES_Y = *`xdpyinfo`.scan(/(\d+)x(\d+) pixels/).flatten.map(&:to_i)
-RATIO_X, RATIO_Y = 1000.0/RES_X, 1000.0/RES_Y
+RATIO_X, RATIO_Y = RES_X/1000.0, RES_Y/1000.0
 
 server = WEBrick::HTTPServer.new :Port => 8000
 

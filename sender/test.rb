@@ -4,7 +4,7 @@ require 'net/http'
 BASE = ARGV[0]
 
 RES_X, RES_Y = *`xdpyinfo`.scan(/(\d+)x(\d+) pixels/).flatten.map(&:to_i)
-RATIO_X, RATIO_Y = RES_X/1000.0, RES_Y/1000.0
+RATIO_X, RATIO_Y = 1000.0/RES_X, 1000.0/RES_Y
 
 def send_location location
   x, y = *location.scan(/x:(\d+) y:(\d+)/).flatten.map(&:to_i)
